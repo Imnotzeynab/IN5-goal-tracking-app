@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Progress</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1>My Progress</h1>
+
+{% for goal in goals %}
+
+<h3>{{ goal[0] }}</h3>
+
+<p>{{ goal[1] }}%</p>
+
+<progress value="{{ goal[1] }}" max="100"></progress>
+
+<br><br>
+
+{% endfor %}
+
+</body>
+
+</html>

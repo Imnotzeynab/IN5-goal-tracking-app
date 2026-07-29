@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Update Goals</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1>Update Goal Progress</h1>
+
+{% for goal in goals %}
+
+<form method="POST">
+
+    <input type="hidden" name="id" value="{{ goal[0] }}">
+
+    <h3>{{ goal[1] }}</h3>
+
+    <input 
+    type="number" 
+    name="progress" 
+    value="{{ goal[2] }}"
+    min="0"
+    max="100">
+
+    <button type="submit">Update</button>
+
+</form>
+
+{% endfor %}
+
+</body>
+
+</html>

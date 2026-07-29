@@ -1,0 +1,18 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 40px;
+}
+
+a {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+}
