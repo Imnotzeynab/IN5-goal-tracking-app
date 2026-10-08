@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1"
     >
 
-    <title>Add Goals</title>
+    <title>Progress</title>
 
     <link href="style.css" rel="stylesheet">
 
@@ -18,59 +18,11 @@
 
 <body>
 
-    <h1>Add Goal</h1>
+    <h1>My Progress</h1>
 
+    <div id="progressContainer"></div>
 
-    <input
-        type="text"
-        id="goalInput"
-        placeholder="Your goal"
-    >
-
-
-    <label for="goalDuration">
-        How long do you want to keep this goal?
-    </label>
-
-
-    <div class="goal-duration">
-
-        <input
-            type="number"
-            id="goalDuration"
-            min="1"
-            value="30"
-            placeholder="30"
-        >
-
-        <select id="goalDurationUnit">
-
-            <option value="days">
-                Days
-            </option>
-
-            <option value="weeks">
-                Weeks
-            </option>
-
-            <option value="months">
-                Months
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <button
-        type="button"
-        id="saveGoal">
-        Save
-    </button>
-
-
-    <script src="goaldata.js"></script>
-    <script src="add_goals.js"></script>
+    <script src="progress.js"></script>
 
 </body>
 
