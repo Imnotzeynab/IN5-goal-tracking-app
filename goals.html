@@ -2,28 +2,33 @@
 <html>
 
 <head>
-    
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
     <title>My Goals</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link href="style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<h1>My Goals</h1>
+    <h1>My Goals</h1>
 
-{% for goal in goals %}
+    <div id="goalsContainer"></div>
 
-<div>
-    <h3>{{ goal[0] }}</h3>
-    <p>Progress: {{ goal[1] }}</p>
-</div>
-
-{% endfor %}
+    <script src="goaldata.js"></script>
+    <script src="goals.js"></script>
 
 </body>
 
