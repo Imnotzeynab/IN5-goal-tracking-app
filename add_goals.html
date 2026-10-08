@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Add Goals</title>
+
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1>Add Goal</h1>
+
+
+    <input
+        type="text"
+        id="goalInput"
+        placeholder="Your goal"
+    >
+
+
+    <label for="goalDuration">
+        How long do you want to keep this goal?
+    </label>
+
+
+    <div class="goal-duration">
+
+        <input
+            type="number"
+            id="goalDuration"
+            min="1"
+            value="30"
+            placeholder="30"
+        >
+
+        <select id="goalDurationUnit">
+
+            <option value="days">
+                Days
+            </option>
+
+            <option value="weeks">
+                Weeks
+            </option>
+
+            <option value="months">
+                Months
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <button
+        type="button"
+        id="saveGoal">
+        Save
+    </button>
+
+
+    <script src="goaldata.js"></script>
+    <script src="add_goals.js"></script>
+
+</body>
+
+</html>
