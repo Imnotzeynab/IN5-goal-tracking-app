@@ -1,16 +1,206 @@
 
-/* ==============================
+
+   /* =========================================================
    GLOBAL RESET
-   ============================== */
+   ========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+/* =========================================================
+   GENERAL BODY
+   ========================================================= */
+
+body {
+    min-height: 100vh;
     font-family: "Poppins", sans-serif;
 }
 
-body {
+
+/* =========================================================
+   DASHBOARD PAGE
+   ========================================================= */
+
+.main-page {
+    min-height: 100vh;
+    display: block;
+    padding: 0;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(120, 80, 255, 0.20),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(80, 180, 255, 0.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #07051a,
+            #10082d,
+            #050414
+        );
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+   ========================================================= */
+
+.main-header {
+    width: 100%;
+    min-height: 85px;
+
+    padding: 0 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+
+    background: rgba(7, 5, 26, 0.72);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+
+/* NAVIGATION */
+
+.main-header nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-header nav a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.main-header nav a:hover {
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   DASHBOARD MAIN
+   ========================================================= */
+
+.main-container {
+    min-height: calc(100vh - 85px);
+
+    padding: 60px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
+.dashboard {
+    width: 100%;
+    max-width: 900px;
+
+    padding: 60px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+}
+
+.dashboard h1 {
+    margin-bottom: 15px;
+
+    font-size: 42px;
+}
+
+.dashboard p {
+    margin-bottom: 40px;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   DASHBOARD BUTTONS
+   ========================================================= */
+
+.dashboard-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.dashboard-button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    transition: 0.3s ease;
+}
+
+.dashboard-button:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================================
+   POMODORO PAGE
+   ========================================================= */
+
+.timer-page {
     min-height: 100vh;
 
     display: flex;
@@ -23,254 +213,164 @@ body {
 
     background:
         radial-gradient(
-            circle at 15% 20%,
-            rgba(139, 92, 246, 0.20),
-            transparent 32%
+            circle at 20% 20%,
+            rgba(120, 80, 255, 0.20),
+            transparent 40%
         ),
         radial-gradient(
-            circle at 85% 75%,
-            rgba(216, 92, 255, 0.14),
-            transparent 32%
+            circle at 80% 80%,
+            rgba(80, 180, 255, 0.15),
+            transparent 40%
         ),
         linear-gradient(
             135deg,
             #07051a,
-            #0b0824
+            #10082d,
+            #050414
         );
 }
 
-/* ==============================
-   TIMER CONTAINER
-   ============================== */
 
-.container {
-    width: min(650px, 100%);
+/* =========================================================
+   POMODORO CONTAINER
+   ========================================================= */
 
-    padding: 4rem 3rem;
+.timer-page .container {
+    width: 100%;
+    max-width: 600px;
+
+    padding: 45px;
 
     text-align: center;
 
-    background: rgba(18, 16, 45, 0.88);
+    background: rgba(255, 255, 255, 0.05);
 
-    border: 1px solid rgba(139, 92, 246, 0.35);
-    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 25px;
 
     backdrop-filter: blur(20px);
-
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.45),
-        0 0 50px rgba(139, 92, 246, 0.10);
-
-    position: relative;
-    overflow: hidden;
 }
 
-/* Violet glow along the top edge */
 
-.container::before {
-    content: "";
+/* =========================================================
+   POMODORO TITLE
+   ========================================================= */
 
-    position: absolute;
-    top: 0;
-    left: 15%;
+.timer-page .title {
+    margin-bottom: 30px;
 
-    width: 70%;
-    height: 2px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #b06cff,
-        #d85cff,
-        transparent
-    );
+    font-size: 32px;
+    font-weight: 600;
 }
 
-/* ==============================
-   TITLE
-   ============================== */
 
-.title {
-    margin-bottom: 1.5rem;
+/* =========================================================
+   POMODORO TIMER
+   ========================================================= */
 
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    font-weight: 700;
+.timer-page .timer {
+    margin-bottom: 30px;
 
-    letter-spacing: 2px;
-
-    background: linear-gradient(
-        90deg,
-        #8b5cf6,
-        #b06cff,
-        #d85cff,
-        #ff73b7
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
+    font-size: 70px;
+    font-weight: 600;
 }
 
-/* ==============================
-   TIMER DISPLAY
-   ============================== */
 
-.timer {
-    margin: 1rem 0 2rem;
+/* =========================================================
+   POMODORO BUTTONS
+   ========================================================= */
 
-    font-size: clamp(4rem, 15vw, 10rem);
-    font-weight: 700;
-
-    line-height: 1.1;
-    letter-spacing: -4px;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 0 25px rgba(176, 108, 255, 0.25);
-}
-
-/* ==============================
-   BUTTON LAYOUT
-   ============================== */
-
-.button-wrapper {
+.timer-page .button-wrapper {
     display: flex;
     justify-content: center;
+    gap: 15px;
     flex-wrap: wrap;
-
-    gap: 1rem;
 }
 
-/* ==============================
-   GENERAL BUTTONS
-   ============================== */
+.timer-page button {
+    padding: 12px 24px;
 
-button {
-    padding: 0.85rem 1.6rem;
-
-    border: 1px solid rgba(176, 108, 255, 0.35);
-    border-radius: 12px;
-
-    background: rgba(139, 92, 246, 0.12);
+    border: none;
+    border-radius: 10px;
 
     color: #ffffff;
 
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.10);
 
     cursor: pointer;
 
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    transition: 0.3s ease;
 }
 
-button:hover {
-    transform: translateY(-3px);
+.timer-page button:hover {
+    background: rgba(255, 255, 255, 0.18);
 
-    background: rgba(139, 92, 246, 0.25);
-
-    border-color: #b06cff;
-
-    box-shadow:
-        0 8px 25px rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
 }
 
-button:active {
-    transform: translateY(0);
-}
 
-/* ==============================
-   START BUTTON
-   ============================== */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
-#start {
-    background: linear-gradient(
-        135deg,
-        #8b5cf6,
-        #b06cff
-    );
+@media (max-width: 768px) {
 
-    border: none;
-
-    color: #ffffff;
-}
-
-#start:hover {
-    background: linear-gradient(
-        135deg,
-        #a78bfa,
-        #d85cff
-    );
-
-    box-shadow:
-        0 10px 30px rgba(139, 92, 246, 0.35);
-}
-
-/* ==============================
-   STOP BUTTON
-   ============================== */
-
-#stop {
-    background: rgba(255, 120, 157, 0.12);
-
-    border-color: rgba(255, 120, 157, 0.4);
-
-    color: #ff9fba;
-}
-
-#stop:hover {
-    background: rgba(255, 120, 157, 0.25);
-
-    border-color: #ff789d;
-
-    box-shadow:
-        0 8px 25px rgba(255, 120, 157, 0.15);
-}
-
-/* ==============================
-   RESET BUTTON
-   ============================== */
-
-#reset {
-    background: rgba(216, 92, 255, 0.10);
-
-    border-color: rgba(216, 92, 255, 0.35);
-
-    color: #e6c8ff;
-}
-
-#reset:hover {
-    background: rgba(216, 92, 255, 0.22);
-
-    border-color: #d85cff;
-}
-
-/* ==============================
-   MOBILE RESPONSIVENESS
-   ============================== */
-
-@media (max-width: 480px) {
-    .container {
-        padding: 3rem 1.2rem;
-        border-radius: 20px;
+    .main-header {
+        padding: 0 25px;
     }
 
-    .timer {
-        letter-spacing: -2px;
+    .main-header nav {
+        gap: 15px;
     }
 
-    .button-wrapper {
-        gap: 0.7rem;
+    .dashboard {
+        padding: 40px 25px;
     }
 
-    button {
-        padding: 0.8rem 1rem;
-        font-size: 0.95rem;
+    .dashboard h1 {
+        font-size: 34px;
+    }
+
+    .timer-page .timer {
+        font-size: 55px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .main-header {
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+    .main-header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-container {
+        padding: 30px 15px;
+    }
+
+    .dashboard {
+        padding: 30px 20px;
+    }
+
+    .dashboard h1 {
+        font-size: 28px;
+    }
+
+    .timer-page .container {
+        padding: 30px 20px;
+    }
+
+    .timer-page .timer {
+        font-size: 45px;
     }
 }
