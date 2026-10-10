@@ -1,35 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>IN5 Dashboard</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>IN5 | Dashboard</title>
+
+    <link
+        href="style.css"
+        rel="stylesheet"
+    >
 
 </head>
 
-<body>
-<a href="add_goals">
 
-    <button>Add Goals</button>
-</a>
+<body class="main-page">
 
-<a href="/goals">
-    <button>View Goals</button>
-</a>
 
-<a href="/update_goal">
-    <button>Update Goal</button>
-</a>
-<a href="/delete_goal">
-    <button>Delete Goal</button>
-</a>
-<a href="/progress">
-    <button>View Progress</button>
-</a>
+    <header class="main-header">
+
+        <div class="logo">
+            IN5
+        </div>
+
+        <nav>
+
+            <a href="main.html">
+                Home
+            </a>
+
+            <a href="goals.html">
+                Goals
+            </a>
+
+            <a href="progress.html">
+                Progress
+            </a>
+
+            
+
+        </nav>
+
+    </header>
+
+
+    <main class="main-container">
+
+
+        <section class="dashboard">
+
+            <h1>
+                Welcome to IN5
+            </h1>
+
+            <p>
+                Manage your goals and track your progress.
+            </p>
+
+
+            <div class="dashboard-actions">
+
+
+                <!-- ADD GOAL -->
+
+                <a
+                    href="add_goals.html"
+                    class="dashboard-button"
+                >
+                    Add Goal
+                </a>
+
+
+                <!-- VIEW GOALS -->
+
+                <a
+                    href="goals.html"
+                    class="dashboard-button"
+                >
+                    View Goals
+                </a>
+
+
+                <!-- UPDATE GOAL -->
+
+                <a
+                    href="update_goals.html"
+                    class="dashboard-button"
+                >
+                    Update Goal
+                </a>
+
+
+                <!-- DELETE GOAL -->
+
+                <a
+                    href="delete_goals.html"
+                    class="dashboard-button"
+                >
+                    Delete Goal
+                </a>
+
+
+                
+                <a
+                    href="progress.html"
+                    class="dashboard-button"
+                >
+                    View Progress
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
 
 </body>
+
 </html>
