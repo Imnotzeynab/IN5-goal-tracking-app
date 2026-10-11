@@ -1,62 +1,45 @@
 
+
+         
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Update Goals | IN5</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-
         <h1>Update Your Goals</h1>
-
         <p>
             Every small step brings you closer to your future self.
         </p>
-
     </header>
 
-
     <main>
-
         <section
             id="goalsContainer"
             class="goals-container"
+            aria-live="polite"
         >
-
-            <!-- Each goal and its update form
-                 will appear here. -->
-
+            <!-- Goals will be displayed here by JavaScript. -->
         </section>
 
-
-        <a
-            href="main.html"
-            class="back-link"
-        >
+        <a href="main.html" class="back-link">
             Back to Dashboard
         </a>
-
     </main>
 
-
+    <!-- Load the goal functions first. -->
     <script src="goaldata.js"></script>
+
+    <!-- Then load the update page functionality. -->
     <script src="update_goals.js"></script>
 
 </body>
