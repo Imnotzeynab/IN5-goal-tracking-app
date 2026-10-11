@@ -1,6 +1,3 @@
-
-
-
 :root {
     --space-deep: #07051a;
     --space-navy: #0b0824;
@@ -2308,14 +2305,12 @@ body:has(#goalsContainer) main {
     }
 
 }
-
-/* POMODORO PAGE FONT */
-
-.timer-page,
-.timer-page * {
-    font-family: "Poppins", Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
-
 
 
 /* ==============================
@@ -2602,4 +2597,6 @@ button:active {
         padding: 0.8rem 1rem;
         font-size: 0.95rem;
     }
-}
+} 
+
+
