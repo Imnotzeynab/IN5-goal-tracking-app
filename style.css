@@ -1,4 +1,6 @@
 
+
+
 :root {
     --space-deep: #07051a;
     --space-navy: #0b0824;
@@ -2318,7 +2320,12 @@ body:has(#goalsContainer) main {
     font-family: "Poppins", sans-serif;
 }
 
-body {
+
+/* ==============================
+   POMODORO PAGE
+   ============================== */
+
+.timer-page {
     min-height: 100vh;
 
     display: flex;
@@ -2347,6 +2354,7 @@ body {
         );
 }
 
+
 /* ==============================
    TIMER CONTAINER
    ============================== */
@@ -2373,6 +2381,7 @@ body {
     overflow: hidden;
 }
 
+
 /* Violet glow along the top edge */
 
 .container::before {
@@ -2393,6 +2402,7 @@ body {
         transparent
     );
 }
+
 
 /* ==============================
    TITLE
@@ -2420,6 +2430,7 @@ body {
     color: transparent;
 }
 
+
 /* ==============================
    TIMER DISPLAY
    ============================== */
@@ -2439,17 +2450,20 @@ body {
         0 0 25px rgba(176, 108, 255, 0.25);
 }
 
+
 /* ==============================
    BUTTON LAYOUT
    ============================== */
 
 .button-wrapper {
     display: flex;
+
     justify-content: center;
     flex-wrap: wrap;
 
     gap: 1rem;
 }
+
 
 /* ==============================
    GENERAL BUTTONS
@@ -2478,6 +2492,7 @@ button {
         border-color 0.25s ease;
 }
 
+
 button:hover {
     transform: translateY(-3px);
 
@@ -2489,9 +2504,11 @@ button:hover {
         0 8px 25px rgba(139, 92, 246, 0.2);
 }
 
+
 button:active {
     transform: translateY(0);
 }
+
 
 /* ==============================
    START BUTTON
@@ -2509,6 +2526,7 @@ button:active {
     color: #ffffff;
 }
 
+
 #start:hover {
     background: linear-gradient(
         135deg,
@@ -2519,6 +2537,7 @@ button:active {
     box-shadow:
         0 10px 30px rgba(139, 92, 246, 0.35);
 }
+
 
 /* ==============================
    STOP BUTTON
@@ -2532,6 +2551,7 @@ button:active {
     color: #ff9fba;
 }
 
+
 #stop:hover {
     background: rgba(255, 120, 157, 0.25);
 
@@ -2540,6 +2560,7 @@ button:active {
     box-shadow:
         0 8px 25px rgba(255, 120, 157, 0.15);
 }
+
 
 /* ==============================
    RESET BUTTON
@@ -2553,17 +2574,20 @@ button:active {
     color: #e6c8ff;
 }
 
+
 #reset:hover {
     background: rgba(216, 92, 255, 0.22);
 
     border-color: #d85cff;
 }
 
+
 /* ==============================
    MOBILE RESPONSIVENESS
    ============================== */
 
 @media (max-width: 480px) {
+
     .container {
         padding: 3rem 1.2rem;
         border-radius: 20px;
@@ -2582,7 +2606,3 @@ button:active {
         font-size: 0.95rem;
     }
 }
-
-
-
-   
