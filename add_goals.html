@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
@@ -7,70 +8,56 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Add Goals</title>
+    <title>Update Goals | IN5</title>
 
-    <link href="style.css" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 <body>
 
-    <h1>Add Goal</h1>
+    <header>
+
+        <h1>Update Your Goals</h1>
+
+        <p>
+            Every small step brings you closer to your future self.
+        </p>
+
+    </header>
 
 
-    <input
-        type="text"
-        id="goalInput"
-        placeholder="Your goal"
-    >
+    <main>
 
-
-    <label for="goalDuration">
-        How long do you want to keep this goal?
-    </label>
-
-
-    <div class="goal-duration">
-
-        <input
-            type="number"
-            id="goalDuration"
-            min="1"
-            value="30"
-            placeholder="30"
+        <section
+            id="goalsContainer"
+            class="goals-container"
         >
 
-        <select id="goalDurationUnit">
+            <!-- Each goal and its update form
+                 will appear here. -->
 
-            <option value="days">
-                Days
-            </option>
-
-            <option value="weeks">
-                Weeks
-            </option>
-
-            <option value="months">
-                Months
-            </option>
-
-        </select>
-
-    </div>
+        </section>
 
 
-    <button
-        type="button"
-        id="saveGoal">
-        Save
-    </button>
+        <a
+            href="main.html"
+            class="back-link"
+        >
+            Back to Dashboard
+        </a>
+
+    </main>
 
 
     <script src="goaldata.js"></script>
-    <script src="add_goals.js"></script>
+    <script src="update_goals.js"></script>
 
 </body>
 
