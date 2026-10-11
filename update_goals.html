@@ -1,41 +1,63 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Update Goals</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Update Goals | IN5</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
 <body>
 
-<h1>Update Goal Progress</h1>
+    <header>
 
-{% for goal in goals %}
+        <h1>Update Your Goals</h1>
 
-<form method="POST">
+        <p>
+            Every small step brings you closer to your future self.
+        </p>
 
-    <input type="hidden" name="id" value="{{ goal[0] }}">
+    </header>
 
-    <h3>{{ goal[1] }}</h3>
 
-    <input 
-    type="number" 
-    name="progress" 
-    value="{{ goal[2] }}"
-    min="0"
-    max="100">
+    <main>
 
-    <button type="submit">Update</button>
+        <section
+            id="goalsContainer"
+            class="goals-container"
+        >
 
-</form>
+            <!-- Each goal and its update form
+                 will appear here. -->
 
-{% endfor %}
+        </section>
+
+
+        <a
+            href="main.html"
+            class="back-link"
+        >
+            Back to Dashboard
+        </a>
+
+    </main>
+
+
+    <script src="goaldata.js"></script>
+    <script src="update_goals.js"></script>
 
 </body>
 
