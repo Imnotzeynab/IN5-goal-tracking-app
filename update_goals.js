@@ -1,9 +1,14 @@
+
+
 "use strict";
+
 
 const goalsContainer =
     document.getElementById("goalsContainer");
 
-const goals = getGoals();
+
+const goals =
+    getGoals();
 
 
 /*
@@ -36,10 +41,13 @@ else {
         const goalForm =
             document.createElement("form");
 
+
         goalForm.className =
             "goal-update-card";
 
+
         goalForm.innerHTML = `
+
             <h3>
                 ${goal.text}
             </h3>
@@ -61,11 +69,13 @@ else {
                 value="1"
                 min="1"
                 max="100"
+                required
             >
 
             <button type="submit">
                 Update
             </button>
+
         `;
 
 
@@ -81,10 +91,12 @@ else {
 
                 event.preventDefault();
 
+
                 const input =
                     goalForm.querySelector(
                         ".progress-input"
                     );
+
 
                 const amount =
                     Number(input.value);
@@ -97,13 +109,15 @@ else {
                 */
 
                 if (
-                    isNaN(amount) ||
+                    !Number.isFinite(amount) ||
                     amount <= 0
                 ) {
 
                     alert(
                         "Please enter a positive number."
                     );
+
+                    input.focus();
 
                     return;
                 }
@@ -134,7 +148,7 @@ else {
 
                 /*
                 -----------------------------------------
-                SAVE
+                SAVE PROGRESS
                 -----------------------------------------
                 */
 
@@ -146,7 +160,7 @@ else {
 
                 /*
                 -----------------------------------------
-                GO BACK TO MAIN PAGE
+                RETURN TO MAIN
                 -----------------------------------------
                 */
 
@@ -156,6 +170,12 @@ else {
             }
         );
 
+
+        /*
+        =================================================
+        ADD GOAL TO PAGE
+        =================================================
+        */
 
         goalsContainer.appendChild(goalForm);
 
