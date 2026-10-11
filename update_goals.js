@@ -1,5 +1,7 @@
 
 
+             
+    
 "use strict";
 
 /*
@@ -14,125 +16,147 @@ const goalsContainer =
 
 /*
 =========================================================
-DISPLAY A MESSAGE
+DISPLAY MESSAGES
 =========================================================
 */
 
 function showMessage(message, className) {
+
     const paragraph = document.createElement("p");
 
     paragraph.className = className;
     paragraph.textContent = message;
 
     goalsContainer.replaceChildren(paragraph);
+
 }
 
 
 /*
 =========================================================
-LOAD AND DISPLAY GOALS
+LOAD AND DISPLAY SAVED GOALS
 =========================================================
 */
 
 function displayGoals() {
 
-    // Check that the required HTML element exists.
     if (!goalsContainer) {
-        console.error("The goals container was not found.");
+        console.error("Goals container not found.");
         return;
     }
 
-    // Check that goaldata.js loaded correctly.
+    // Check that goaldata.js has loaded.
     if (
         typeof getGoals !== "function" ||
         typeof updateGoalProgress !== "function"
     ) {
+
         showMessage(
-            "Unable to load goal data. Please check goaldata.js.",
+            "Goal data could not be loaded. Check goaldata.js.",
             "no-goals"
         );
+
         return;
     }
 
     let goals;
 
     try {
+
         goals = getGoals();
+
     } catch (error) {
-        console.error("Could not load goals:", error);
+
+        console.error("Error loading goals:", error);
 
         showMessage(
-            "Unable to load your goals. Please try again.",
+            "Unable to load saved goals.",
             "no-goals"
         );
+
         return;
     }
 
-    // Validate the returned data.
+    // Check that the saved data is an array.
     if (!Array.isArray(goals)) {
+
         showMessage(
-            "Your goal data is invalid. Please check goaldata.js.",
+            "Your saved goal data is invalid.",
             "no-goals"
         );
+
         return;
     }
 
-    // Handle the case where there are no goals.
+    // Display a message when there are no goals.
     if (goals.length === 0) {
+
         showMessage(
             "No goals available to update. Create a goal first!",
             "no-goals"
         );
+
         return;
     }
 
-    const fragment = document.createDocumentFragment();
+    const fragment =
+        document.createDocumentFragment();
+
 
     /*
     =====================================================
-    CREATE ONE UPDATE CARD PER GOAL
+    CREATE A CARD FOR EACH GOAL
     =====================================================
     */
 
-    goals.forEach(function (goal) {
+    goals.forEach(function (goal, index) {
 
         const card = document.createElement("form");
+
         card.className = "goal-update-card";
+
 
         // Goal title.
         const title = document.createElement("h3");
-        title.textContent = goal.text || "Untitled goal";
+
+        title.textContent =
+            goal.text || "Untitled goal";
+
 
         // Current progress.
-        const progressText = document.createElement("p");
-        progressText.append("Current progress: ");
+        const progressText =
+            document.createElement("p");
 
-        const progressValue = document.createElement("strong");
+        progressText.textContent =
+            "Current progress: ";
 
-        const currentProgress = Number(goal.progress);
+        const progressValue =
+            document.createElement("strong");
+
+        const currentProgress =
+            Number(goal.progress);
+
         const validProgress =
             Number.isFinite(currentProgress) &&
             currentProgress >= 0 &&
             currentProgress <= 100;
 
-        progressValue.textContent = validProgress
-            ? `${currentProgress}%`
-            : "Invalid";
+        progressValue.textContent =
+            validProgress
+                ? currentProgress + "%"
+                : "Invalid";
 
         progressText.appendChild(progressValue);
 
-        // Label for the input.
-        const label = document.createElement("label");
-        const inputId = `progress-${String(goal.id)}`;
 
-        label.htmlFor = inputId;
-        label.textContent = "Add progress (%)";
+        // Progress input label.
+        const label =
+            document.createElement("label");
 
-        // Progress input.
-        const input = document.createElement("input");
+        const input =
+            document.createElement("input");
 
         input.type = "number";
-        input.id = inputId;
         input.className = "progress-input";
         input.min = "1";
         input.max = "100";
@@ -140,20 +164,31 @@ function displayGoals() {
         input.value = "1";
         input.required = true;
 
-        // Validation feedback.
-        const feedback = document.createElement("p");
+        input.id = "progress-input-" + index;
+
+        label.htmlFor = input.id;
+        label.textContent = "Add progress (%)";
+
+
+        // Validation message.
+        const feedback =
+            document.createElement("p");
+
         feedback.className = "progress-feedback";
         feedback.setAttribute("aria-live", "polite");
 
-        // Submit button.
-        const button = document.createElement("button");
+
+        // Update button.
+        const button =
+            document.createElement("button");
 
         button.type = "submit";
         button.textContent = "Update Progress";
 
+
         /*
         =================================================
-        HANDLE PROGRESS UPDATE
+        HANDLE FORM SUBMISSION
         =================================================
         */
 
@@ -161,20 +196,19 @@ function displayGoals() {
 
             event.preventDefault();
 
-            // Ensure the goal has a valid ID and progress.
             if (
                 goal.id === undefined ||
                 goal.id === null ||
                 goal.id === "" ||
                 !validProgress
             ) {
+
                 feedback.textContent =
-                    "This goal has invalid data. Please check your saved goals.";
+                    "This goal contains invalid data.";
 
                 return;
             }
 
-            // Validate the entered amount.
             const amount = input.valueAsNumber;
 
             if (
@@ -184,14 +218,16 @@ function displayGoals() {
                 amount < 1 ||
                 amount > 100
             ) {
+
                 feedback.textContent =
                     "Enter a whole number between 1 and 100.";
 
                 input.focus();
+
                 return;
             }
 
-            // Calculate the new progress.
+            // Never allow progress to exceed 100%.
             const newProgress = Math.min(
                 100,
                 currentProgress + amount
@@ -199,36 +235,40 @@ function displayGoals() {
 
             try {
 
-                // Save using the existing goal-storage function.
-                const result = updateGoalProgress(
+                const saved = updateGoalProgress(
                     goal.id,
                     newProgress
                 );
 
-                // If the storage function explicitly reports failure,
-                // keep the user on this page.
-                if (result === false) {
+                if (saved === false) {
+
                     feedback.textContent =
-                        "The update could not be saved. Please try again.";
+                        "Could not save your progress. Please try again.";
 
                     return;
                 }
 
-                // Navigate only after the update completes.
+                // Reload the dashboard after a successful update.
                 window.location.href = "main.html";
 
             } catch (error) {
 
-                console.error("Could not update goal:", error);
+                console.error(
+                    "Error updating goal:",
+                    error
+                );
 
                 feedback.textContent =
-                    "Something went wrong while saving. Please try again.";
+                    "An error occurred while saving your progress.";
+
             }
+
         });
+
 
         /*
         =================================================
-        ASSEMBLE THE CARD
+        ADD ELEMENTS TO THE CARD
         =================================================
         */
 
@@ -242,9 +282,18 @@ function displayGoals() {
         );
 
         fragment.appendChild(card);
+
     });
 
+
+    /*
+    =====================================================
+    DISPLAY ALL GOAL CARDS
+    =====================================================
+    */
+
     goalsContainer.replaceChildren(fragment);
+
 }
 
 
@@ -255,10 +304,3 @@ START THE PAGE
 */
 
 displayGoals();
-
-
-          
-
-                
-                -----------------------------------------
-           
